@@ -4,8 +4,156 @@
   <meta charset="UTF-8">
   <title>My Personal Site</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Add Font Awesome for skill icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <!-- Add your HTML content here -->
+  <!-- Navigation bar -->
+  <nav>
+    <!-- Simple navigation links -->
+    <ul>
+      <li><a href="#hero">home</a></li>
+      <li><a href="#about">about me</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#songs">songs</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero section -->
+  <section id="hero">
+    <img src="img/scrappy.webp" alt="Scooby Doo" class="hero-img">
+    <h1>Welcome to Soraya's Space!</h1>
+    <p>Scroll down to learn more about me!</p>
+    <!-- The background image is set in CSS for this section -->
+  </section>
+
+  <!-- About Me section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi! I'm a computer science student interested in building fun websites.<br>
+      I enjoy learning new things, especially about technology and design.<br>
+      I ALSO LOVE TO FISH 😎! <br>
+  <!-- Possibily add image of my biggest catch in the future-->
+    </p>
+  </section>
+
+  <!-- Skills section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <p>Here are some of the tools under my belt:</p>
+    <div class="skills-list">
+      <!-- Use Font Awesome icons to represent each skill -->
+      <div class="skill">
+        <i class="fab fa-html5"></i> <!-- HTML icon -->
+        <span>HTML</span>
+      </div>
+      <div class="skill">
+        <i class="fab fa-css3-alt"></i> <!-- CSS icon -->
+        <span>CSS</span>
+      </div>
+      <div class="skill">
+        <i class="fab fa-python"></i> <!-- Python icon -->
+        <span>Python</span>
+      </div>
+      <div class="skill">
+        <i class="fas fa-database"></i> <!-- SQL icon -->
+        <span>SQL</span>
+      </div>
+      <div class="skill">
+        <i class="fab fa-java"></i> <!-- Java icon -->
+        <span>Java</span>
+      </div>
+      <div class="skill">
+        <i class="fas fa-code"></i> <!-- C icon -->
+        <span>C</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Songs section -->
+  <section id="songs">
+    <h2>Songs</h2>
+    <p>Click on an image to play or pause the song:</p>
+    <div class="songs-list">
+      <!-- Song 1 -->
+      <div class="song">
+        <a href="javascript:void(0)" onclick="togglePlay('song1')">
+          <img src="img/cikho.jpg" alt="Song 1" class="song-img">
+        </a>
+        <p class="song-title">cikho - STRIVE</p>
+        <audio id="song1" src="audio/song1.mp3"></audio>
+      </div>
+
+      <!-- Song 2 -->
+      <div class="song">
+        <a href="javascript:void(0)" onclick="togglePlay('song2')">
+          <img src="img/deftones.jpg" alt="Song 2" class="song-img">
+        </a>
+        <p class="song-title">Deftones - Beware</p>
+        <audio id="song2" src="audio/song2.mp3"></audio>
+      </div>
+
+      <!-- Song 3 -->
+      <div class="song">
+        <a href="javascript:void(0)" onclick="togglePlay('song3')">
+          <img src="img/kaytranada.webp" alt="Song 3" class="song-img">
+        </a>
+        <p class="song-title">Freefall - KAYTRANADA</p>
+        <audio id="song3" src="audio/song3.mp3"></audio>
+      </div>
+
+      <!-- Song 4 -->
+      <div class="song">
+        <a href="javascript:void(0)" onclick="togglePlay('song4')">
+          <img src="img/pinkpantheress.webp" alt="Song 4" class="song-img">
+        </a>
+        <p class="song-title">Illegal - PinkPantheress</p>
+        <audio id="song4" src="audio/song4.mp3"></audio>
+      </div>
+
+      <!-- Song 5 -->
+      <div class="song">
+        <a href="javascript:void(0)" onclick="togglePlay('song5')">
+          <img src="img/daft punk.jpg" alt="Song 5" class="song-img">
+        </a>
+        <p class="song-title">Daft Punk - Something About Us</p>
+        <audio id="song5" src="audio/song5.mp3"></audio>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>You can reach me at:</p>
+    <ul class="contact-list">
+      <li>Email: <a href="mailto:sorayazapatarocha@gmail.com">sorayazapatarocha@gmail.com</a></li>
+      <li>GitHub: <a href="https://github.com/sor4ya" target="_blank">@sor4ya</a></li>
+    </ul>
+  </section>
+
+  <!-- Add this script at the end of the body -->
+  <script>
+    function togglePlay(songId) {
+      const audio = document.getElementById(songId);
+
+      // Pause all other songs
+      document.querySelectorAll('audio').forEach(audioElement => {
+        if (audioElement !== audio) {
+          audioElement.pause();
+          audioElement.currentTime = 0; // Reset other songs
+        }
+      });
+
+      // Toggle play/pause for the selected song
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+  </script>
 </body>
 </html>
